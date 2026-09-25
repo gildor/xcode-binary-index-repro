@@ -3,6 +3,11 @@
 The same four frameworks, consumed four ways, to reproduce "Open Quickly can't find classes from
 binary frameworks".
 
+**Status:** proposed upstream as an opt-in compiler flag, `-index-binary-modules`.
+
+- Issue: [swiftlang/swift#92627](https://github.com/swiftlang/swift/issues/92627)
+- Discussion: [Indexing binary Swift frameworks for IDE navigation](https://forums.swift.org/t/indexing-binary-swift-frameworks-for-ide-navigation/89761)
+
 | Framework | Language | Mirrors |
 |---|---|---|
 | `SwiftKit` | Swift, library evolution (`.swiftinterface`) | any Swift xcframework |
