@@ -123,3 +123,6 @@ prototype toolchain `~/Library/Developer/Toolchains/swift-index-binary-modules.x
   `SwiftKitMixerConsole` from the binary framework. With binary-indexed module units marked as
   *system* (like SDK modules), selecting the result opens the generated (per-group) interface
   instead of the raw `.private.swiftinterface`.
+- Side effects of marking them as system, compared with SwiftUI's `View` in the same file: identical.
+  Find > Symbols with references lists the project's uses; definitions-only project search excludes
+  both; Refactor > Rename is refused for both.
