@@ -1,0 +1,9 @@
+.build/
+*.xcodeproj
+*.xcworkspace
+Derived/
+Tools/indexdump
+Packages/BinaryPkg/Binaries/
+Apps/TuistBinary/Tuist/.build/
+.DS_Store
+xcuserdata/

@@ -1,0 +1,44 @@
+name: Vendor
+options:
+  deploymentTarget: { iOS: "16.0" }
+settings:
+  base:
+    BUILD_LIBRARY_FOR_DISTRIBUTION: YES
+    SKIP_INSTALL: NO
+    CODE_SIGNING_ALLOWED: NO
+    GENERATE_INFOPLIST_FILE: YES
+    SWIFT_VERSION: "5.0"
+targets:
+  SwiftKit:
+    type: framework
+    platform: iOS
+    sources: [../Packages/SourcePkg/Sources/SwiftKit]
+    settings: { PRODUCT_BUNDLE_IDENTIFIER: repro.SwiftKit, SKIP_INSTALL: NO }
+  ObjCKit:
+    type: framework
+    platform: iOS
+    sources:
+      - path: ../Packages/SourcePkg/Sources/ObjCKit/ObjCKit.m
+      - path: ../Packages/SourcePkg/Sources/ObjCKit/include/ObjCKit.h
+        buildPhase: headers
+        headerVisibility: public
+    settings: { PRODUCT_BUNDLE_IDENTIFIER: repro.ObjCKit, DEFINES_MODULE: YES, SKIP_INSTALL: NO }
+  EngineC:
+    type: framework
+    platform: iOS
+    sources:
+      - path: ../Packages/SourcePkg/Sources/EngineC/EngineC.c
+      - path: ../Packages/SourcePkg/Sources/EngineC/include/EngineC.h
+        buildPhase: headers
+        headerVisibility: public
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: repro.EngineC
+      DEFINES_MODULE: YES
+      MODULEMAP_FILE: EngineC.modulemap
+      SKIP_INSTALL: NO
+  EngineSwift:
+    type: framework
+    platform: iOS
+    sources: [../Packages/SourcePkg/Sources/EngineSwift]
+    dependencies: [{ target: EngineC, embed: false }]
+    settings: { PRODUCT_BUNDLE_IDENTIFIER: repro.EngineSwift, SKIP_INSTALL: NO }

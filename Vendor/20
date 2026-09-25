@@ -1,0 +1,20 @@
+{
+  "SwiftKitEffectRack": [
+    "SwiftKitEffectRack.swift"
+  ],
+  "SwiftKitMixerConsole": [
+    "SwiftKitMixerConsole.swift"
+  ],
+  "SwiftKitTempoMap": [
+    "SwiftKitTempoMap.swift"
+  ],
+  "SwiftKitTransportBar": [
+    "SwiftKitTransportBar.swift"
+  ],
+  "SwiftKitWaveformRenderer": [
+    "SwiftKitWaveformRenderer.swift"
+  ],
+  "SwiftKit": [
+    "SwiftKit.swift"
+  ]
+}

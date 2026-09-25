@@ -1,0 +1,21 @@
+name: XcodeSource
+options:
+  deploymentTarget: { iOS: "16.0" }
+settings:
+  base:
+    GENERATE_INFOPLIST_FILE: YES
+    CODE_SIGNING_ALLOWED: NO
+    SWIFT_VERSION: "5.0"
+    INFOPLIST_KEY_UILaunchScreen_Generation: YES
+packages:
+  SourcePkg: { path: ../../Packages/SourcePkg }
+targets:
+  XcodeSource:
+    type: application
+    platform: iOS
+    sources: [../Shared]
+    settings: { PRODUCT_BUNDLE_IDENTIFIER: repro.XcodeSource }
+    dependencies:
+      - { package: SourcePkg, product: SwiftKit }
+      - { package: SourcePkg, product: ObjCKit }
+      - { package: SourcePkg, product: EngineSwift }

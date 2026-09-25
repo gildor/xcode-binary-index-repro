@@ -1,0 +1,21 @@
+name: XcodeBinary
+options:
+  deploymentTarget: { iOS: "16.0" }
+settings:
+  base:
+    GENERATE_INFOPLIST_FILE: YES
+    CODE_SIGNING_ALLOWED: NO
+    SWIFT_VERSION: "5.0"
+    INFOPLIST_KEY_UILaunchScreen_Generation: YES
+packages:
+  BinaryPkg: { path: ../../Packages/BinaryPkg }
+targets:
+  XcodeBinary:
+    type: application
+    platform: iOS
+    sources: [../Shared]
+    settings: { PRODUCT_BUNDLE_IDENTIFIER: repro.XcodeBinary }
+    dependencies:
+      - { package: BinaryPkg, product: SwiftKit }
+      - { package: BinaryPkg, product: ObjCKit }
+      - { package: BinaryPkg, product: EngineSwift }

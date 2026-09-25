@@ -1,0 +1,20 @@
+name: XcodeDirectIndexed
+options:
+  deploymentTarget: { iOS: "16.0" }
+settings:
+  base:
+    GENERATE_INFOPLIST_FILE: YES
+    CODE_SIGNING_ALLOWED: NO
+    SWIFT_VERSION: "5.0"
+    INFOPLIST_KEY_UILaunchScreen_Generation: YES
+targets:
+  XcodeDirectIndexed:
+    type: application
+    platform: iOS
+    sources: [../Shared]
+    settings: { PRODUCT_BUNDLE_IDENTIFIER: repro.XcodeDirectIndexed, OTHER_SWIFT_FLAGS: "$(inherited) -Xfrontend -index-binary-modules", SWIFT_USE_INTEGRATED_DRIVER: NO, SWIFT_ENABLE_EXPLICIT_MODULES: NO, SDK_STAT_CACHE_ENABLE: NO, APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING: NO }
+    dependencies:
+      - { framework: ../../Packages/BinaryPkg/Binaries/SwiftKit.xcframework }
+      - { framework: ../../Packages/BinaryPkg/Binaries/ObjCKit.xcframework }
+      - { framework: ../../Packages/BinaryPkg/Binaries/EngineSwift.xcframework }
+      - { framework: ../../Packages/BinaryPkg/Binaries/EngineC.xcframework }
